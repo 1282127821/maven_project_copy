@@ -96,5 +96,6 @@ public class 浮点数问题 {
         System.out.println(b6.compareTo(b8));//返回0表示相等,1表示前者大于后者 -1表示前者小于后者
         System.out.println(b8.compareTo(b6));//返回0表示相等,1表示前者大于后者 -1表示前者小于后者
         System.out.println("test");
+        System.out.println("222");
     }
 }
