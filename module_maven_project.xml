@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_maven_project" default="compile.module.maven_project">
+  <dirname property="module.maven_project.basedir" file="${ant.file.module_maven_project}"/>
+  
+  <property name="module.jdk.home.maven_project" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.maven_project" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.maven_project" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.maven_project" value="-encoding UTF-8 -source 5 -target 1.5 ${compiler.args}"/>
+  
+  <property name="maven_project.output.dir" value="${module.maven_project.basedir}/target/classes"/>
+  <property name="maven_project.testoutput.dir" value="${module.maven_project.basedir}/target/test-classes"/>
+  
+  <path id="maven_project.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="maven_project.module.production.classpath">
+    <path refid="${module.jdk.classpath.maven_project}"/>
+    <path refid="library.maven:_com.google.guava:guava:18.0.classpath"/>
+  </path>
+  
+  <path id="maven_project.runtime.production.module.classpath">
+    <pathelement location="${maven_project.output.dir}"/>
+    <path refid="library.maven:_com.google.guava:guava:18.0.classpath"/>
+  </path>
+  
+  <path id="maven_project.module.classpath">
+    <path refid="${module.jdk.classpath.maven_project}"/>
+    <pathelement location="${maven_project.output.dir}"/>
+    <path refid="library.maven:_com.google.guava:guava:18.0.classpath"/>
+  </path>
+  
+  <path id="maven_project.runtime.module.classpath">
+    <pathelement location="${maven_project.testoutput.dir}"/>
+    <pathelement location="${maven_project.output.dir}"/>
+    <path refid="library.maven:_com.google.guava:guava:18.0.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.maven_project">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.maven_project">
+    <patternset refid="excluded.from.module.maven_project"/>
+  </patternset>
+  
+  <path id="maven_project.module.sourcepath">
+    <dirset dir="${module.maven_project.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="maven_project.module.test.sourcepath">
+    <dirset dir="${module.maven_project.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.maven_project" depends="compile.module.maven_project.production,compile.module.maven_project.tests" description="Compile module maven_project"/>
+  
+  <target name="compile.module.maven_project.production" depends="register.custom.compilers" description="Compile module maven_project; production classes">
+    <mkdir dir="${maven_project.output.dir}"/>
+    <javac2 destdir="${maven_project.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.maven_project}/javac">
+      <compilerarg line="${compiler.args.maven_project}"/>
+      <bootclasspath refid="maven_project.module.bootclasspath"/>
+      <classpath refid="maven_project.module.production.classpath"/>
+      <src refid="maven_project.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.maven_project"/>
+    </javac2>
+    
+    <copy todir="${maven_project.output.dir}">
+      <fileset dir="${module.maven_project.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.maven_project.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.maven_project.tests" depends="register.custom.compilers,compile.module.maven_project.production" description="compile module maven_project; test classes" unless="skip.tests">
+    <mkdir dir="${maven_project.testoutput.dir}"/>
+    <javac2 destdir="${maven_project.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.maven_project}/javac">
+      <compilerarg line="${compiler.args.maven_project}"/>
+      <bootclasspath refid="maven_project.module.bootclasspath"/>
+      <classpath refid="maven_project.module.classpath"/>
+      <src refid="maven_project.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.maven_project"/>
+    </javac2>
+    
+    <copy todir="${maven_project.testoutput.dir}">
+      <fileset dir="${module.maven_project.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.maven_project" description="cleanup module">
+    <delete dir="${maven_project.output.dir}"/>
+    <delete dir="${maven_project.testoutput.dir}"/>
+  </target>
+</project>
