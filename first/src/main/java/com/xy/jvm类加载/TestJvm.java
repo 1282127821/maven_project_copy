@@ -17,8 +17,7 @@ public class TestJvm {
             System.out.println(ConstClass.value);
         }
 }
-/**
- * 被动引用情景3
+/** 被动引用情景3
  * 常量在编译阶段会被存入调用类的常量池中，本质上并没有引用到定义常量类类，所以自然不会触发定义常量的类的初始化
  * @author root
  *
