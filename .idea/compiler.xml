@@ -7,8 +7,19 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="four" />
+        <module name="lombok-study" />
+        <module name="spiImpl" />
+        <module name="spiRule" />
+        <module name="spiTest" />
+        <module name="springboot-demo" />
+        <module name="three" />
+        <module name="高并发学习案例" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="8" />
+    <bytecodeTargetLevel target="8">
+      <module name="demo" target="1.5" />
+      <module name="lombokstudy" target="1.8" />
+      <module name="springboot-demo" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

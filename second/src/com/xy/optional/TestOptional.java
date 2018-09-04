@@ -45,6 +45,8 @@ public class TestOptional {
         Optional<MyClass> empty = Optional.empty();
         Optional<MyClass> instant1 = Optional.of(MyClass.getInstant(1));
         Optional<MyClass> instant2 = Optional.ofNullable(MyClass.getInstant(0));
+        int aa=1;
+        System.out.println(aa);
         System.out.println(instant2.isPresent());
         System.out.println(instant1.get());
 //        System.out.println(empty.get());//报错因为没有可以获得的对象
@@ -91,6 +93,8 @@ public class TestOptional {
         list.forEach(Lambda::new);
         /**特殊引用 */
         new TestSingle().method(Lambda::special);
+
+
     }
 }
 

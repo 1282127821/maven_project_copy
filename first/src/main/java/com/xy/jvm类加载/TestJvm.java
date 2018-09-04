@@ -6,6 +6,12 @@
  */
 package com.xy.jvm类加载;
 
+import org.apache.commons.collections.ArrayStack;
+import org.apache.commons.collections.CollectionUtils;
+
+import java.util.Collection;
+import java.util.Collections;
+
 /**
  *@fileName:TestJvm
  *@author:xy
