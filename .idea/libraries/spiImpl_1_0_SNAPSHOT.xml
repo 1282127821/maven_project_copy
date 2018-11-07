@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="spiImpl-1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/spiTest/lib/spiImpl-1.0-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/spiTest/lib/spiRule-1.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
