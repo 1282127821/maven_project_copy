@@ -15,6 +15,12 @@
         <module name="高并发学习案例" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="8" />
+    <bytecodeTargetLevel target="8">
+      <module name="game-hot-update-demo" target="1.5" />
+      <module name="GameServer" target="1.5" />
+      <module name="GameServerHotUpdate" target="1.5" />
+      <module name="LoadAgent" target="1.5" />
+      <module name="maven_project" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
