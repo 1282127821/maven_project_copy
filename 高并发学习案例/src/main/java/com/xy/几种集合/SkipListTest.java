@@ -1,7 +1,12 @@
 package com.xy.几种集合;
 
+import java.util.DuplicateFormatFlagsException;
 import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListMap;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * @fileName:SkipListTest
@@ -11,7 +16,7 @@ import java.util.concurrent.ConcurrentSkipListMap;
  */
 public class SkipListTest {
     public static void main(String[] args) {
-        ConcurrentSkipListMap<Integer, Integer> map = new ConcurrentSkipListMap<Integer, Integer>();
+        ConcurrentSkipListMap<Integer, Integer> map = new ConcurrentSkipListMap<>();
         map.put(2, 2000);
         map.put(1, 1000);
         map.put(3, 3000);
@@ -20,7 +25,5 @@ public class SkipListTest {
             System.out.println(map.get(key));// 1000  2000  3000 说明跳表是根据 key排序的
         }
 //        LinkedBlockingQueue
-
-System.out.println(22222222);
     }
 }

@@ -7,20 +7,31 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="four" />
+        <module name="GameServer" />
+        <module name="GameServerHotUpdate" />
+        <module name="LoadAgent" />
         <module name="lombok-study" />
         <module name="spiImpl" />
         <module name="spiRule" />
         <module name="spiTest" />
+        <module name="springboot-demo" />
         <module name="three" />
         <module name="高并发学习案例" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
-      <module name="game-hot-update-demo" target="1.5" />
-      <module name="GameServer" target="1.5" />
-      <module name="GameServerHotUpdate" target="1.5" />
-      <module name="LoadAgent" target="1.5" />
-      <module name="maven_project" target="1.8" />
+      <module name="demo" target="1.5" />
+      <module name="gradle-project1_main" target="1.8" />
+      <module name="gradle-project1_test" target="1.8" />
+      <module name="lombokstudy" target="1.8" />
+      <module name="model_main" target="1.8" />
+      <module name="model_test" target="1.8" />
+      <module name="Responsibility_main" target="1.8" />
+      <module name="Responsibility_test" target="1.8" />
+      <module name="Service_main" target="1.8" />
+      <module name="Service_test" target="1.8" />
+      <module name="springboot-demo" target="1.5" />
+      <module name="springboot1" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

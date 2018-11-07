@@ -1,5 +1,6 @@
 package com.xy.threadlocal;
 
+import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,9 +15,9 @@ import java.util.WeakHashMap;
 public class StrongRefenceTest {
     private Product product=new Product("iPhone");
     private Product product2=new Product("小米");
-    WeakHashMap<Product, Integer> weakHashMap= new WeakHashMap<Product, Integer>();
-    Map<Product, Integer> map = new HashMap<Product, Integer>();
-//@Test
+    WeakHashMap<Product, Integer> weakHashMap= new WeakHashMap<>();
+    Map<Product, Integer> map = new HashMap<>();
+    @Test
     public void test(){
 
         map.put(product, 111);
@@ -33,7 +34,7 @@ public class StrongRefenceTest {
    * 弱引用与软引用的区别在于：只具有弱引用的对象拥有更短暂的生命周期。如果一个对象只具有弱引用，只要垃圾回收器在内存空间检测到了，
    * 不管当前内存空间足够与否，都会回收对应的内存。不过，由于垃圾回收器是一个优先级很低的线程，因此不一定会很快发现那些只具有弱引用的对象。
    */
-//  @Test
+  @Test
   public void weakRef_2() {
 
 //      weakHashMap.put(product, 111);

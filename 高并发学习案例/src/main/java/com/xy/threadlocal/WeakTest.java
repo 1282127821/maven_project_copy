@@ -61,7 +61,7 @@ public class WeakTest{
     }
     @Test
     public void test3() throws InterruptedException {
-        ThreadLocal<Weak> t=new ThreadLocal<Weak>();
+        ThreadLocal<Weak> t=new ThreadLocal<>();
         t.set(new Weak(22));
         System.gc();
         Thread.sleep(3000);
@@ -70,7 +70,6 @@ public class WeakTest{
         System.gc();
         Thread.sleep(3000);
         System.out.println(t.get());
-                System.out.println(1111);
     }
 }
 

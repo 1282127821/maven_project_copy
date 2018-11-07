@@ -2,9 +2,23 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Responsibility/Responsibility.iml" filepath="$PROJECT_DIR$/.idea/modules/Responsibility/Responsibility.iml" group="Responsibility" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Responsibility/Responsibility_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Responsibility/Responsibility_main.iml" group="Responsibility" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Responsibility/Responsibility_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Responsibility/Responsibility_test.iml" group="Responsibility" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Service/Service.iml" filepath="$PROJECT_DIR$/.idea/modules/Service/Service.iml" group="Service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Service/Service_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Service/Service_main.iml" group="Service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Service/Service_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Service/Service_test.iml" group="Service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gradle-project.iml" filepath="$PROJECT_DIR$/.idea/modules/gradle-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gradle-project1.iml" filepath="$PROJECT_DIR$/.idea/modules/gradle-project1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gradle-project1_main.iml" filepath="$PROJECT_DIR$/.idea/modules/gradle-project1_main.iml" group="gradle-project1" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gradle-project1_test.iml" filepath="$PROJECT_DIR$/.idea/modules/gradle-project1_test.iml" group="gradle-project1" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/model/model.iml" filepath="$PROJECT_DIR$/.idea/modules/model/model.iml" group="model" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/model/model_main.iml" filepath="$PROJECT_DIR$/.idea/modules/model/model_main.iml" group="model" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/model/model_test.iml" filepath="$PROJECT_DIR$/.idea/modules/model/model_test.iml" group="model" />
       <module fileurl="file://$PROJECT_DIR$/python-first/python-first.iml" filepath="$PROJECT_DIR$/python-first/python-first.iml" />
       <module fileurl="file://$PROJECT_DIR$/second/second.iml" filepath="$PROJECT_DIR$/second/second.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring1/spring1.iml" filepath="$PROJECT_DIR$/spring1/spring1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/untitled/untitled.iml" filepath="$PROJECT_DIR$/untitled/untitled.iml" />
     </modules>
   </component>
 </project>
