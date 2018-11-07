@@ -6,9 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="first" />
+        <module name="four" />
+        <module name="lombok-study" />
+        <module name="spiImpl" />
+        <module name="spiRule" />
+        <module name="spiTest" />
+        <module name="three" />
+        <module name="高并发学习案例" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="8" />
+    <bytecodeTargetLevel target="8">
+      <module name="game-hot-update-demo" target="1.5" />
+      <module name="GameServer" target="1.5" />
+      <module name="GameServerHotUpdate" target="1.5" />
+      <module name="LoadAgent" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$USER_HOME$/Desktop/game-hot-update-master/GameServer/GameServer.iml" filepath="$USER_HOME$/Desktop/game-hot-update-master/GameServer/GameServer.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/game-hot-update-master/GameServerHotUpdate/GameServerHotUpdate.iml" filepath="$USER_HOME$/Desktop/game-hot-update-master/GameServerHotUpdate/GameServerHotUpdate.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/game-hot-update-master/LoadAgent/LoadAgent.iml" filepath="$USER_HOME$/Desktop/game-hot-update-master/LoadAgent/LoadAgent.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/game-hot-update-master/game-hot-update-demo.iml" filepath="$USER_HOME$/Desktop/game-hot-update-master/game-hot-update-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/python-first/python-first.iml" filepath="$PROJECT_DIR$/python-first/python-first.iml" />
       <module fileurl="file://$PROJECT_DIR$/second/second.iml" filepath="$PROJECT_DIR$/second/second.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring1/spring1.iml" filepath="$PROJECT_DIR$/spring1/spring1.iml" />
