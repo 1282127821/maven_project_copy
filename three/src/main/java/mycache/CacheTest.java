@@ -2,8 +2,6 @@ package mycache;
 
 import org.junit.Test;
 
-import java.io.File;
-import java.sql.SQLOutput;
 import java.util.HashMap;
 import java.util.Set;
 import java.util.TreeMap;
@@ -59,17 +57,17 @@ public class CacheTest {
 
   @Test
   public void test2() {
-    LFUCache lfuCache = new LFUCache(10);
+    LFUCache2 lfuCache = new LFUCache2(10);
     for (int i = 1; i <= 10; i++) {
       lfuCache.putCache(i, i);
     }
-      TreeMap<LFUCache.Data, Object> map = lfuCache.getMap();
+      TreeMap<LFUCache2.Data, Object> map = lfuCache.getMap();
       Object cache = lfuCache.getCache(5);
     System.out.println(cache + "///为什么是null");
-    TreeMap<Object, LFUCache.Data> treeMapkey = lfuCache.getTreeMapkey();
+    TreeMap<Object, LFUCache2.Data> treeMapkey = lfuCache.getTreeMapkey();
     System.out.println(map.get(treeMapkey.get(3)));
       //    System.out.println(lfuCache.getTreeMap().get(5).hitCount);//命中次数
-    TreeMap<LFUCache.Data, Object> cacheMap = lfuCache.getMap();
+    TreeMap<LFUCache2.Data, Object> cacheMap = lfuCache.getMap();
     cacheMap
         .values()
         .forEach(
@@ -78,7 +76,7 @@ public class CacheTest {
             });
     System.out.println();
     lfuCache.getCache(5);
-    TreeMap<LFUCache.Data, Object> cacheMap2 = lfuCache.getMap();
+    TreeMap<LFUCache2.Data, Object> cacheMap2 = lfuCache.getMap();
     cacheMap2
         .values()
         .forEach(
@@ -103,10 +101,35 @@ public class CacheTest {
 
   @Test
   public void test4() {
-      LFUCache lfuCache = new LFUCache(10);
-      TreeMap<LFUCache.Data, Object> map = lfuCache.getMap();
-      LFUCache.Data data = new LFUCache.Data(1, 1, 1);
-      map.put(data,1 );
-    System.out.println(map.get(data));
+      LFUCache2 lfuCache = new LFUCache2(10);
+      TreeMap<LFUCache2.Data, Object> map = lfuCache.getMap();
+      dataMethod(map);
+      Set<LFUCache2.Data> data = map.keySet();
+    for (LFUCache2.Data da: data) {
+      System.out.println(da);
+    }
   }
+
+    private void dataMethod(TreeMap<LFUCache2.Data,Object> map) {
+        LFUCache2.Data data = new LFUCache2.Data(1, 1, 1);
+        map.put(data, 1);
+        LFUCache2.Data data2 = new LFUCache2.Data(12, 12, 12);
+        map.put(data2, 1);
+    }
+    @Test
+    public void test5(){
+        TestTreeMapObj t=new TestTreeMapObj();
+    for (int i = 0; i < 10; i++) {
+        t.put(i, i);
+    }
+    }
+    @Test
+    public void test6(){
+        LFUCache2 lfuCache = new LFUCache2(10);
+        for (int i = 1; i <= 10; i++) {
+            lfuCache.putCache(i, i);
+        }
+        TreeMap<LFUCache2.Data, Object> map = lfuCache.getMap();
+    System.out.println(map.size());
+    }
 }
