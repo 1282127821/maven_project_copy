@@ -1,7 +1,7 @@
 package mycache;
 
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.TreeMap;
 
 /**
  * @fileName:LFUCache
@@ -12,18 +12,17 @@ import java.util.TreeMap;
 @SuppressWarnings("all")
 public class LFUCache {
   // 这里有一个前提就是treeMapkey和map 是一一对应的
-  private TreeMap<Object, Data> treeMapkey = new TreeMap<>(); // 其实这里不用treemap只是我开始想法错误，懒得改
-  private final TreeMap<Data, Object> map = new TreeMap<Data, Object>();
+  private HashMap<Object, Data> map = new HashMap<>(); // 其实这里不用treemap只是我开始想法错误，懒得改
   private final int SIZE;
 
   static class Data implements Comparable<Data> {
     Object key; // ley
-    Object value; // value
+    Long times; // value
     int hitCount; // 命中次数
 
-    public Data(Object key, Object value, int hitCount) {
+    public Data(Object key, Long times, int hitCount) {
       this.key = key;
-      this.value = value;
+      this.times = times;
       this.hitCount = hitCount;
     }
 
@@ -31,14 +30,31 @@ public class LFUCache {
       this.hitCount += 1;
     }
 
-    public void setValue(Object value) {
-      this.value = value;
+      public void setTimes(Long times) {
+          this.times = times;
+      }
+
+      public Object getKey() {
+          return key;
+      }
+
+      @Override
+    public int compareTo(Data o) {//很重要这一点
+      if (this.hitCount == o.hitCount) {//相同使用时间戳
+        return this.times.compareTo(o.times);
+      }
+      return this.hitCount - o.hitCount;//不相同直接使用命中率比较
     }
 
-    @Override
-    public int compareTo(Data o) {
-      return this.hitCount >= o.hitCount ? 1 : -1;
-    }
+//    @Override
+//    public int hashCode() {
+//      return (int) key;
+//    }
+//
+//    @Override
+//    public boolean equals(Object obj) {
+//      return this.key == ((Data) obj).key ? true : false;
+//    }
   }
 
   public LFUCache(int size) {
@@ -48,47 +64,37 @@ public class LFUCache {
   public Object getCache(Object key) {
     if (key == null) return null;
     //     命中缓存，计数器 +1，且返回 value
-    Data data = treeMapkey.get(key);
+    Data data = map.get(key);
     data.incrCount();
-    System.out.println(map.get(data));
+    data.setTimes(System.nanoTime());
     return map.get(data);
   }
 
   public void putCache(Object key, Object value) {
-    if (treeMapkey.get(key) != null) { // 说明本身key存在，那么就命中+1，替换结果
-      treeMapkey.get(key).incrCount();
-      treeMapkey.get(key).setValue(null); // 这个应该可以不要，先这样吧
+    if (map.get(key) != null) { // 说明本身key存在，那么就命中+1，替换结果
+      map.get(key).incrCount();
+      map.get(key).setTimes(System.nanoTime()); // 命中后，修改最后一次命中时间
 
     } else { // 不存在，判断是否达到了容量上限
-      if (treeMapkey.size() >= SIZE) {
-        removeLeast(); // 移除使用最少的
+      if (map.size() >= SIZE) {
+          removeLeast();// 移除使用最少的
       }
-      Data data = new Data(key, value, 1);
-        treeMapkey.put(key, data);
-        map.put(data, value);
-      System.out.println(map.get(data));
+      Data data = new Data(key, System.nanoTime(), 1);
+      map.put(key, data);
     }
   }
 
-  private void removeLeast() {
-    //      Object key = treeMapkey.lastKey();
-    //      treeMapkey.remove(key); // 移除排名最后，换句话就是 hitCount最小的那个
-    //      map.remove(treeMapkey.get(key));
+  private Object removeLeast() {
+      Data min = Collections.min(map.values());
+      map.remove(min.key);// 移除排名最后，换句话就是 hitCount最小的那个,当然还有时间戳，当都是itCount都是一样的，移除时间最久的
+      return min.key;
   }
 
-  public TreeMap<Data, Object> getMap() {
-    return map;
-  }
+    public HashMap<Object, Data> getMap() {
+        return map;
+    }
 
-  //  public void setMap(TreeMap<Data, Object> map) {
-  //    this.map = map;
-  //  }
-
-  public TreeMap<Object, Data> getTreeMapkey() {
-    return treeMapkey;
-  }
-
-  public void setTreeMapkey(TreeMap<Object, Data> treeMapkey) {
-    this.treeMapkey = treeMapkey;
-  }
+    public void setMap(HashMap<Object, Data> map) {
+        this.map = map;
+    }
 }

@@ -61,28 +61,16 @@ public class CacheTest {
     for (int i = 1; i <= 10; i++) {
       lfuCache.putCache(i, i);
     }
-    TreeMap<LFUCache.Data, Object> map = lfuCache.getMap();
-    Object cache = lfuCache.getCache(5);
-    System.out.println(cache + "///为什么是null");
-    TreeMap<Object, LFUCache.Data> treeMapkey = lfuCache.getTreeMapkey();
-    System.out.println(map.get(treeMapkey.get(3)));
-    //    System.out.println(lfuCache.getTreeMap().get(5).hitCount);//命中次数
-    TreeMap<LFUCache.Data, Object> cacheMap = lfuCache.getMap();
-    cacheMap
-        .values()
-        .forEach(
-            (t) -> {
-              System.out.print(t + "-");
-            });
-    System.out.println();
-    lfuCache.getCache(5);
-    TreeMap<LFUCache.Data, Object> cacheMap2 = lfuCache.getMap();
-    cacheMap2
-        .values()
-        .forEach(
-            (t) -> {
-              System.out.print(t + "-");
-            });
+    lfuCache.putCache(1, "1第二一命中");
+    lfuCache.putCache(3, "3第二一命中");
+    lfuCache.putCache(10, "10第二一命中");
+    lfuCache.getCache(1);
+    lfuCache.getCache(10);
+    lfuCache.putCache("xy", "xxxxx");
+    HashMap<Object, LFUCache.Data> map = lfuCache.getMap();
+    for (Object ob : map.keySet()) {
+      System.out.println(((LFUCache.Data) map.get(ob)).getKey());
+    }
   }
 
   @Test
@@ -99,7 +87,6 @@ public class CacheTest {
     System.out.println("完毕");
   }
 
-
   @Test
   public void test5() {
     TestTreeMapObj t = new TestTreeMapObj();
@@ -107,20 +94,9 @@ public class CacheTest {
       t.put(i, i);
     }
     t.put(0, 2222222);
-    TestTreeMapObj.Inner o = (TestTreeMapObj.Inner)t.getMap().firstKey();
+    TestTreeMapObj.Inner o = (TestTreeMapObj.Inner) t.getMap().firstKey();
     TestTreeMapObj.Inner o1 = (TestTreeMapObj.Inner) o;
     System.out.println(o1.getId());
     System.out.println(t.getMap().get(o1));
-  }
-
-  @Test
-  public void test6() {
-    LFUCache lfuCache = new LFUCache(10);
-    for (int i = 1; i <= 10; i++) {
-      lfuCache.putCache(i, i);
-    }
-    Object cache = lfuCache.getCache(5);
-    System.out.println(cache);
-    System.out.println(lfuCache.getMap().size());
   }
 }
