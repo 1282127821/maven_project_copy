@@ -66,8 +66,11 @@ public class CacheTest {
     lfuCache.putCache(10, "10第二一命中");
     lfuCache.getCache(1);
     lfuCache.getCache(10);
-    lfuCache.putCache("xy", "xxxxx");
-    HashMap<Object, LFUCache.Data> map = lfuCache.getMap();
+      for (int i = 80; i <100 ; i++) {
+          lfuCache.putCache(i, i);
+      }
+      lfuCache.putCache("xy", "xxxxx");
+      HashMap<Object, LFUCache.Data> map = lfuCache.getMap();
     for (Object ob : map.keySet()) {
       System.out.println(((LFUCache.Data) map.get(ob)).getKey());
     }
