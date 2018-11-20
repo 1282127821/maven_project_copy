@@ -8,7 +8,6 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Service/Service.iml" filepath="$PROJECT_DIR$/.idea/modules/Service/Service.iml" group="Service" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Service/Service_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Service/Service_main.iml" group="Service" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Service/Service_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Service/Service_test.iml" group="Service" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gradle-project.iml" filepath="$PROJECT_DIR$/.idea/modules/gradle-project.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/gradle-project1.iml" filepath="$PROJECT_DIR$/.idea/modules/gradle-project1.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/gradle-project1_main.iml" filepath="$PROJECT_DIR$/.idea/modules/gradle-project1_main.iml" group="gradle-project1" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/gradle-project1_test.iml" filepath="$PROJECT_DIR$/.idea/modules/gradle-project1_test.iml" group="gradle-project1" />
