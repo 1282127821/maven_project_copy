@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+
+    <!--context:component-scan 指定 扫描的包 -->
+    <!--可以通过 resource-pattern 指定扫描的资源, resource-pattern="myrepository/*.class"
+        的含义： 只扫描 base-package 对应包下的 目录为 myrepository 的所有java Bean -->
+    <!-- <context:component-scan base-package="imooc_spring.test.anotation"
+        resource-pattern="myrepository/*.class"></context:component-scan> -->
+
+    <!--
+        context:exclude-filter type="annotation"
+            expression="org.springframework.stereotype.Repository"
+            子节点指定排除哪些注解
+        context:include-filter type="annotation"    需要结合context:component-scan 标签的
+        use-default-filters="false"来使用
+
+        context:exclude-filter type="assignable"
+            这个expression指的是自己写的类，意思排除哪些类
+            expression="imooc_spring.test.anotation.TestObj"
+     -->
+    <context:component-scan base-package="*" >
+        <!-- <context:exclude-filter type="annotation"
+            expression="org.springframework.stereotype.Repository" /> -->
+    </context:component-scan>
+</beans>
