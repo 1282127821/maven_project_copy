@@ -15,6 +15,7 @@
         <module name="spiRule" />
         <module name="spiTest" />
         <module name="springboot-demo" />
+        <module name="springboot3" />
         <module name="three" />
         <module name="高并发学习案例" />
       </profile>

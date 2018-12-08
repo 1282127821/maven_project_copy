@@ -2,8 +2,10 @@ package com.xy.GvavaTest;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Splitter;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
+import java.nio.channels.SocketChannel;
 import java.util.List;
 import java.util.Map;
 
@@ -16,7 +18,7 @@ import java.util.Map;
 public class SplitTest {
    @Test
     public void test1(){
-    /**
+      /**
      * 注意分割器支持链式操作！！！（非）表示非静态方法，需要依赖其他分割器，本身该方法不具备分割能力 fixedLength 就是返回一个固定的 分割器，按照固定长度进行分割 表示为
      * 每【长度】为一组 (非)limit 这个是非静态方法，也就是 他依赖其他 分割器，主要就是限制分割器最多分割为多少段 123456
      * （如果limit=1）那么就是最多分割为1段，其实就是不进行分割，因为它规定原先的最多分割为1段 如果你分割了就成了2段（一刀两断嘛） on 这个就是按照 正则表达式或者
