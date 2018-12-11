@@ -49,6 +49,7 @@ public class EchoServer {
       Set<SelectionKey> readyKeys =
           selector.selectedKeys(); // 多线程情况下，可能多个先都调用select()然后selectedKeys()
       Iterator<SelectionKey> iterator = readyKeys.iterator();
+//      System.out.println(readyKeys.size()+">>>>>>>证明在做死循环>>>>>>>>>>>>>");
       while (iterator.hasNext()) {
         SelectionKey sk = iterator.next();
         // 必须移除掉，否则会重复处理SelectionKey
@@ -138,7 +139,10 @@ public class EchoServer {
       e.printStackTrace();
     }
   }
-
+/*
+业务逻辑就是放到HandleMsg处理，比如客户端按照 约定好的协议 发送数据过来，我这里利用反射技术调用 相应的类，这样就可以处理不同的业务
+而HandleMsg这个类，主要作用就是用来接收(发送)请求用的，可以理解为这是一个 boss线程。
+ */
     class HandleMsg implements Runnable{
         SelectionKey sk;
         ByteBuffer bb;
@@ -150,6 +154,7 @@ public class EchoServer {
 
         @Override
         public void run() {
+            //attachment()这个好理解，因为我服务的将消息 attach()到了sk，现在相当于从sk拿，注意只有服务端放入哪个sk，对应客户端才可以拿到
             EchoClient echoClient= (EchoClient) sk.attachment();
             echoClient.enqueue(bb);
             sk.interestOps(SelectionKey.OP_READ | SelectionKey.OP_WRITE);

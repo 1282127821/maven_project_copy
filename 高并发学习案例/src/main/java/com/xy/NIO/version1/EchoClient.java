@@ -74,6 +74,11 @@ public class EchoClient {
       channel.finishConnect();
     }
     channel.configureBlocking(false);
+    try {
+      Thread.sleep(3000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     channel.write(ByteBuffer.wrap(new String("hello server!\r\n").getBytes()));
     channel.register(this.selector, SelectionKey.OP_READ);
   }
